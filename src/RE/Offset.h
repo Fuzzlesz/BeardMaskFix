@@ -6,7 +6,7 @@ namespace RE
 	{
 		namespace TESNPC
 		{
-			inline constexpr auto DismemberHeadParts = MAKE_OFFSET(24724, 0x3727B0);
+			inline constexpr auto DismemberHeadParts = MAKE_OFFSET(24220, 0x3727B0);
 		}
 	}
 }

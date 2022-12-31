@@ -3,6 +3,7 @@
   "name": "beardmaskfix",
   "version": "1",
   "dependencies": [
+    "commonlibsse-po3-se",
     "boost-stl-interfaces",
     "rsm-binary-io",
     "spdlog",

@@ -1,8 +1,5 @@
 #pragma once
 
-#pragma warning(disable : 5105)
-#pragma warning(push, 0)
-
 #include <RE/Skyrim.h>
 #include <SKSE/SKSE.h>
 
@@ -11,8 +8,6 @@
 #else
 #	include <spdlog/sinks/msvc_sink.h>
 #endif
-
-#pragma warning(pop)
 
 using namespace std::literals;
 
@@ -33,13 +28,10 @@ namespace util
 	}
 }
 
-#ifndef SKYRIMVR
-#define IF_SKYRIMSE(a_resultSE, a_resultVR) a_resultSE
-#else
-#define IF_SKYRIMSE(a_resultSE, a_resultVR) a_resultVR
-#endif
 
-#define MAKE_OFFSET(a_idSE, a_offsetVR) IF_SKYRIMSE(REL::ID(a_idSE), REL::Offset(a_offsetVR))
+#define IF_SKYRIMSE(a_resultSE) a_resultSE
+
+#define MAKE_OFFSET(a_idSE) (REL::ID(a_idSE))
 
 #define DLLEXPORT __declspec(dllexport)
 

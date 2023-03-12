@@ -15,8 +15,8 @@ Hides beards when wearing items with slot 44.
 
 ## Building
 ```
-git clone https://github.com/Exit-9B/BeardMaskFix
-cd BeardMaskFix
+git clone https://github.com/Fuzzlesz/BeardMaskFix-SE
+cd BeardMaskFix-SE
 git submodule init
 git submodule update
 cmake --preset vs2022-windows

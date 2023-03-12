@@ -1,5 +1,7 @@
 Hides beards when wearing items with slot 44.
 
+Port of original mod by Parapets to Skyrim version 1.5.97.
+
 ## Requirements
 * [CMake](https://cmake.org/)
 	* Add this to your `PATH`

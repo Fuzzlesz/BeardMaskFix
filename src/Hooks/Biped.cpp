@@ -32,6 +32,11 @@ namespace Hooks
 		_FindHeadPart = trampoline.write_branch<5>(hook.address(), trampoline.allocate(patch));
 	}
 
+	RE::BGSHeadPart* Biped::DismemberBeard(
+		RE::TESNPC* a_npc,
+		RE::NiAVObject* a_actor3D,
+		std::uint32_t a_wornMask)
+	{
 		auto result = _FindHeadPart(a_npc, RE::BGSHeadPart::HeadPartType::kHair);
 
 		static constexpr std::uint32_t beardSlot = 1U << (44 - 30);
@@ -46,7 +51,7 @@ namespace Hooks
 		}
 
 		if (!beard) {
-			return;
+			return result;
 		}
 
 		if (auto beard3D = a_actor3D->GetObjectByName(beard->formEditorID)) {
@@ -69,6 +74,6 @@ namespace Hooks
 			}
 		}
 
-		return;
+		return result;
 	}
 }

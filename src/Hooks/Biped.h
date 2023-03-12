@@ -9,7 +9,14 @@ namespace Hooks
 
 	private:
 
-		inline static REL::Relocation<RE::BGSHeadPart* (*)(RE::TESNPC*, RE::BGSHeadPart::HeadPartType)>
+		static RE::BGSHeadPart* DismemberBeard(
+			RE::TESNPC* a_npc,
+			RE::NiAVObject* a_actor3D,
+			std::uint32_t a_wornMask);
+
+
+		inline static REL::Relocation<
+			RE::BGSHeadPart* (*)(RE::TESNPC*, RE::BGSHeadPart::HeadPartType)>
 			_FindHeadPart;
 
 	};

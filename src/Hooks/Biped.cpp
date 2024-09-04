@@ -43,10 +43,12 @@ namespace Hooks
 		bool wearingBeardSlot = (a_wornMask & beardSlot) != 0;
 
 		RE::BGSHeadPart* beard = nullptr;
-		for (const auto& headPart : std::span(a_npc->headParts, a_npc->numHeadParts)) {
-			if (headPart->type == RE::BGSHeadPart::HeadPartType::kFacialHair) {
-				beard = headPart;
-				break;
+		if (a_npc->headParts && a_npc->numHeadParts > 0) {
+			for (const auto& headPart : std::span(a_npc->headParts, a_npc->numHeadParts)) {
+				if (headPart && headPart->type == RE::BGSHeadPart::HeadPartType::kFacialHair) {
+					beard = headPart;
+					break;
+				}
 			}
 		}
 
@@ -64,12 +66,14 @@ namespace Hooks
 		}
 
 		for (const auto& extraPart : beard->extraParts) {
-			if (auto extra3D = a_actor3D->GetObjectByName(extraPart->formEditorID)) {
-				if (wearingBeardSlot) {
-					extra3D->flags.set(RE::NiAVObject::Flag::kHidden);
-				}
-				else {
-					extra3D->flags.reset(RE::NiAVObject::Flag::kHidden);
+			if (extraPart) {
+				if (auto extra3D = a_actor3D->GetObjectByName(extraPart->formEditorID)) {
+					if (wearingBeardSlot) {
+						extra3D->flags.set(RE::NiAVObject::Flag::kHidden);
+					}
+					else {
+						extra3D->flags.reset(RE::NiAVObject::Flag::kHidden);
+					}
 				}
 			}
 		}
